@@ -8,13 +8,16 @@ generating training data for Amazon Nova. Previously an ML Research Intern at
 music key estimation.
 
 ## What I'm building
-🍱 **[Issei (一世)](https://github.com/charman02/issei)** — a production REST API 
-for preserving Asian immigrant family recipes, with fuzzy quantity modeling, 
-recipe scaling, and smart unit conversion. Named for first-generation immigrants 
-whose oral cooking traditions resist exact measurement.
+🍱 **[Issei](https://github.com/charman02/issei)** ([live](https://issei-delta.vercel.app)) 
+— a full-stack recipe preservation app for family recipes that exist mostly as 
+oral tradition: "a dash," "about 3 soup spoons," never a precise measurement. 
+21-endpoint FastAPI backend with a layered architecture, React frontend, ~156 
+automated tests, deployed on Vercel and Render. Currently building a "recipe 
+lineage" feature to track how recipes are inherited and adapted across a family 
+over time.
 
 ## Stack
-Python · FastAPI · PostgreSQL · SQLAlchemy · PyTorch · Claude (Anthropic)
+Python · FastAPI · SQLAlchemy · PostgreSQL · React · PyTorch · Claude (Anthropic)
 
 ## Background
 MSc in Data Science & AI (Distinction) — Queen Mary University of London  
