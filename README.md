@@ -14,21 +14,28 @@ musical key estimation.
 
 **[Issei](https://github.com/charman02/issei)** · [live demo](https://issei-delta.vercel.app)
 
-A full-stack app for preserving family recipes — the kind that live as oral
-tradition, measured in "a dash" or "about 3 soup spoons," never anything
-precise. Issei models that imprecision as a first-class idea: ingredients are
-typed as precise, imprecise, or unmeasured, and the scaling engine treats each
-differently, so a recipe can be resized without pretending "a pinch" is a number.
+A deployed full-stack app for preserving the family recipes that were never
+written down — the cooking knowledge immigrant elders carry in memory, one
+generation from being lost. Instead of a static list of grams and steps, Issei
+treats a recipe as a **living vessel for a person**: the cook's own voice and
+their imprecise measurements ("a dash," "three soup spoons," "until it smells
+right") are preserved verbatim rather than normalized away, and each recipe
+**grows from a seed into a tree** as it's cooked, enriched, and handed down.
 
+- **Fuzzy-quantity model:** ingredients are typed as precise, imprecise, or
+  unmeasured, and the scaling engine treats each differently — so a recipe can
+  be resized without pretending "a pinch" is a number.
+- **Lineage & handoff:** recipes branch across relatives with per-recipe
+  private → shared → public visibility, tracking how a dish is inherited and
+  adapted over generations.
 - **Backend:** FastAPI + SQLAlchemy, ~20 REST endpoints in a layered
-  routers → services → models architecture, JWT auth, soft deletes, and a
-  three-tier visibility model.
+  routers → services → models architecture, JWT auth, and soft deletes.
 - **Frontend:** React + Vite + Tailwind, custom components (no UI kit).
-- **Quality:** 62 backend and 81 frontend automated tests.
-- **Deployed:** Vercel (web) + Render (API) + Neon (Postgres); SQLite locally.
+- **Quality & deploy:** 62 backend + 81 frontend automated tests; live on
+  Vercel (web) + Render (API) + Neon (Postgres), SQLite locally.
 
-Currently building a **recipe lineage** feature that tracks how a dish is
-inherited and adapted across a family over time.
+Next up: **multi-user family sharing** — a proper families model so a recipe one
+relative adds is visible to the whole family without manual copying.
 
 ## 🛠️ Featured projects
 
