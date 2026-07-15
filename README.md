@@ -1,4 +1,4 @@
-# Hi, I'm Charlie 👋
+# Hi, I'm Charles 👋
 
 I build with AI and care about whether it actually works for the people using it.
 
