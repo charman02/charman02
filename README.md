@@ -54,4 +54,4 @@ inherited and adapted across a family over time.
 
 ---
 
-📫 **[LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE)** · _replace with your profile URL_
+📫 **[LinkedIn](https://www.linkedin.com/in/charlie-man/)**
