@@ -1,64 +1,90 @@
-# Hi, I'm Charles 👋
+# Charles Man
 
-Software engineer working at the intersection of full-stack development and
-applied ML. I like building things that actually work for the people using them
-— and I care as much about the tests, the architecture, and the deploy as I do
-about the demo.
+Software engineer working across full-stack and applied ML. I care most about the
+part after the demo — the tests, the authorization model, the thing that happens
+when two people click the same link.
 
-Currently at **Amazon AGI Data Services**, evaluating agentic AI outputs and
-generating training data for Amazon Nova. Previously an ML Research Intern at
-**Output Inc.**, where I investigated self-supervised model adaptation for
-musical key estimation.
+Looking for roles in applied AI/ML engineering — agentic systems, evaluation, and
+the full-stack work that makes them usable.
 
-## 🍱 What I'm building
+Currently at **Amazon** (AGI), evaluating agentic AI output within Amazon's Nova
+portfolio — 3000+ task evaluations to date — and generating training data.
+Previously ML Research Intern at **Output Inc.**, adapting self-supervised models
+for musical key estimation.
 
-**[Issei](https://github.com/charman02/issei)** · [live demo](https://issei-delta.vercel.app)
-
-A deployed full-stack app for preserving the family recipes that were never
-written down — the cooking knowledge immigrant elders carry in memory, one
-generation from being lost. Instead of a static list of grams and steps, Issei
-treats a recipe as a **living vessel for a person**: the cook's own voice and
-their imprecise measurements ("a dash," "three soup spoons," "until it smells
-right") are preserved verbatim rather than normalized away, and each recipe
-**grows from a seed into a tree** as it's cooked, enriched, and handed down.
-
-- **Fuzzy-quantity model:** ingredients are typed as precise, imprecise, or
-  unmeasured, and the scaling engine treats each differently — so a recipe can
-  be resized without pretending "a pinch" is a number.
-- **Lineage & handoff:** recipes branch across relatives with per-recipe
-  private → shared → public visibility, tracking how a dish is inherited and
-  adapted over generations.
-- **Backend:** FastAPI + SQLAlchemy, ~20 REST endpoints in a layered
-  routers → services → models architecture, JWT auth, and soft deletes.
-- **Frontend:** React + Vite + Tailwind, custom components (no UI kit).
-- **Quality & deploy:** 62 backend + 81 frontend automated tests; live on
-  Vercel (web) + Render (API) + Neon (Postgres), SQLite locally.
-
-Next up: **multi-user family sharing** — a proper families model so a recipe one
-relative adds is visible to the whole family without manual copying.
-
-## 🛠️ Featured projects
-
-| Project | What it is | Stack |
-|---|---|---|
-| **[Issei](https://github.com/charman02/issei)** | Full-stack recipe-preservation app (deployed) | FastAPI · React · Postgres |
-| **[short-loop-key-estimation](https://github.com/charman02/short-loop-key-estimation)** | Self-supervised ML for musical key estimation on short audio loops | PyTorch · nnAudio |
-| **[amazon-fine-food-reviews-search-engine](https://github.com/charman02/amazon-fine-food-reviews-search-engine)** | BM25 search engine over ~568K reviews with an NLP pipeline + IR evaluation | Elasticsearch · NLTK |
-| **[cifar10-image-classifier](https://github.com/charman02/cifar10-image-classifier)** | Custom CNN with learned, input-weighted conv blocks (~87% accuracy) | PyTorch |
-
-## 💻 Tech I work with
-
-- **Languages:** Python · JavaScript · C++ · SQL
-- **Backend:** FastAPI · SQLAlchemy · PostgreSQL · REST APIs
-- **Frontend:** React · Vite · Tailwind CSS
-- **ML / Data:** PyTorch · scikit-learn · NumPy · pandas
-- **Tooling:** Git · pytest · Vitest · Docker · Claude (Anthropic)
-
-## 🎓 Background
-
-- **MSc, Data Science & AI** (Distinction) — Queen Mary University of London
-- **BS, Biology** (Minor in Computer Science) — Tufts University
+**MSc Data Science & AI** (Distinction), Queen Mary University of London  
+**BS Biology**, CS minor, Tufts University · Boston, MA
 
 ---
 
-📫 **[LinkedIn](https://www.linkedin.com/in/charlie-man/)**
+## 🍱 Issei — [live app](https://issei-delta.vercel.app) · [repo](https://github.com/charman02/issei) · [API docs](https://family-recipe-library.onrender.com/docs)
+
+**Someone cooked you something you'd never had before, you asked for the recipe.
+Issei is how they send it to you.**
+
+Not a scrubbed list of grams — the dish the way they actually make it, with "a
+good splash" left as "a good splash." They write it down once; you get a link and
+read the whole thing without making an account.
+
+`FastAPI` · `SQLAlchemy` · `PostgreSQL` · `React` · `Vite` · `Tailwind` · deployed on Vercel + Render + Neon
+
+**21 REST endpoints · 8 data models · 474 automated tests (136 pytest + 338 Vitest) · 240 commits over 3 months, solo**
+
+Three things in here I'd want to be asked about:
+
+**A capability-token share flow.** Holding an unguessable link *is* the read
+permission — `GET /recipes/invite/{token}` serves the full recipe, ingredients
+and steps and all, with no account. The recipient has never tasted the dish and
+wants to cook it, so a signup wall at that moment is friction at peak intent.
+A separate response schema withholds the owner's private notes and every
+account ID.
+
+**A revocation bug I found and fixed.** Claiming an invite reassigned
+`to_user_id` on a single shared row — so when a second person claimed the same
+link, the first person silently lost access, because read authorization matches
+on that column. Now every claimer gets an independent grant. Locked in with a
+regression test that asserts *both* recipients still see the recipe.
+([`39e9934`](https://github.com/charman02/issei/commit/39e9934))
+
+**Two shipped subsystems I deleted on purpose.** A consolidating shopping list
+summed amounts across recipes — which means normalizing them, which is exactly
+what this app exists to refuse; on real data it produced `"a good splash + a
+glug"`. And a lineage tree modeled recipes as a generational graph when the
+product is one dish handed to one person. I verified the removal safe against
+production first (zero rows had a parent, so the tree-walk was already the
+identity function), which collapsed authorization from a parent-chain walk to a
+single predicate.
+
+There are also **five tests that assert the UI makes no claim the product can't
+back** — four fail if any screen mentions voice or audio, because `voice_note`
+is typed text and no recording exists anywhere in the app.
+
+---
+
+## 🛠️ Selected projects
+
+| Project | What it is | Result | Stack |
+|---|---|---|---|
+| **[issei](https://github.com/charman02/issei)** | Recipe app for dishes nobody wrote down — deployed, capability-token sharing, three visibility tiers | 21 endpoints · 474 tests | FastAPI · React · Postgres |
+| **[short-loop-key-estimation](https://github.com/charman02/short-loop-key-estimation)** | Fine-tuned S-KEY for short audio loops — 24-way key classification trained with **zero ground-truth labels** via a transposition-equivariance objective | **64.8** MIREX weighted (GiantSteps) · **63.6** (FMAKv2) · +17.6 pts over my own SSL baseline | PyTorch · nnAudio · madmom |
+| **[amazon-fine-food-reviews-search-engine](https://github.com/charman02/amazon-fine-food-reviews-search-engine)** | BM25 retrieval over Amazon Fine Food Reviews, with Precision/Recall/NDCG implemented from scratch | 568K → **393,576** deduped docs at ~1,035/sec | Elasticsearch · NLTK |
+| **[cifar10-image-classifier](https://github.com/charman02/cifar10-image-classifier)** | CNN whose conv blocks are **softmax-weighted by the input itself** — each block learns per-image which of its convolutions to trust, plus residual connections | **86.9%** test accuracy | PyTorch |
+
+Also some C++ from earlier: an [RPN calculator](https://github.com/charman02/rpn-calculator),
+a [Huffman compressor](https://github.com/charman02/text-file-huffman-compressor),
+and an [MBTA train simulation](https://github.com/charman02/mbta-train-simulation) —
+data structures built from scratch, each with its own unit-test harness.
+
+---
+
+## 💻 Tools
+
+**Languages:** Python · JavaScript · C++ · SQL  
+**Backend:** FastAPI · SQLAlchemy · PostgreSQL · Alembic · JWT · REST  
+**Frontend:** React · Vite · Tailwind (no UI kit — 5 runtime dependencies total)  
+**ML / Data:** PyTorch · scikit-learn · NumPy · pandas · Elasticsearch · NLTK  
+**Practice:** pytest · Vitest · Docker · Git · Claude Code
+
+---
+
+**[LinkedIn](https://www.linkedin.com/in/charlie-man/)**
