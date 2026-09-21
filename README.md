@@ -28,7 +28,7 @@ read the whole thing without making an account.
 
 `FastAPI` · `SQLAlchemy` · `PostgreSQL` · `React` · `Vite` · `Tailwind` · deployed on Vercel + AWS ECS Fargate + Neon
 
-**67 REST endpoints · 18 data models · 1,872 automated tests (890 pytest + 982 Vitest) · 368 commits over 4 months, solo**
+**67 REST endpoints · 18 data models · 1,877 automated tests (895 pytest + 982 Vitest) · 370 commits over 4 months, solo**
 
 Three things in here I'd want to be asked about:
 
@@ -80,7 +80,7 @@ manifest is guarded too, by a frontend test that reads the file directly.)
 
 | Project | What it is | Result | Stack |
 |---|---|---|---|
-| **[issei](https://github.com/charman02/issei)** | Recipe app for dishes nobody wrote down — deployed, capability-token sharing, three visibility tiers, blocking + reporting, Web Push from scratch | 67 endpoints · 1,872 tests | FastAPI · React · Postgres · AWS |
+| **[issei](https://github.com/charman02/issei)** | Recipe app for dishes nobody wrote down — deployed, capability-token sharing, three visibility tiers, blocking + reporting, Web Push from scratch | 67 endpoints · 1,877 tests | FastAPI · React · Postgres · AWS |
 | **[short-loop-key-estimation](https://github.com/charman02/short-loop-key-estimation)** | Fine-tuned S-KEY for short audio loops — 24-way key classification trained with **zero ground-truth labels** via a transposition-equivariance objective | **64.8** MIREX weighted (GiantSteps) · **63.6** (FMAKv2) · +17.6 pts over my own SSL baseline | PyTorch · nnAudio · madmom |
 | **[amazon-fine-food-reviews-search-engine](https://github.com/charman02/amazon-fine-food-reviews-search-engine)** | BM25 retrieval over Amazon Fine Food Reviews, with Precision/Recall/NDCG implemented from scratch | 568K → **393,576** deduped docs at ~1,035/sec | Elasticsearch · NLTK |
 | **[cifar10-image-classifier](https://github.com/charman02/cifar10-image-classifier)** | CNN whose conv blocks are **softmax-weighted by the input itself** — each block learns per-image which of its convolutions to trust, plus residual connections | **86.9%** test accuracy | PyTorch |
