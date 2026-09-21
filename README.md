@@ -28,7 +28,7 @@ read the whole thing without making an account.
 
 `FastAPI` · `SQLAlchemy` · `PostgreSQL` · `React` · `Vite` · `Tailwind` · deployed on Vercel + AWS ECS Fargate + Neon
 
-**67 REST endpoints · 18 data models · 1,877 automated tests (895 pytest + 982 Vitest) · 370 commits over 4 months, solo**
+**67 REST endpoints · 18 data models · 1,877 automated tests (895 pytest + 982 Vitest) · ~370 commits over 4 months, solo**
 
 Three things in here I'd want to be asked about:
 
