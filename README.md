@@ -1,15 +1,11 @@
 # Charles Man
 
-Software engineer working across full-stack and applied ML. I care most about the
+Builder working across full-stack and applied ML. I care most about the
 part after the demo — the tests, the authorization model, the thing that happens
 when two people click the same link.
 
-Looking for roles in applied AI/ML engineering — agentic systems, evaluation, and
-the full-stack work that makes them usable.
-
-Currently at **Amazon** (AGI), evaluating agentic AI output within Amazon's Nova
-portfolio — 3000+ task evaluations to date — and generating training data.
-Previously ML Research Intern at **Output Inc.**, adapting self-supervised models
+Previously at **Amazon** (AGI), evaluating agentic AI output and generating training data,
+and **Output Inc.** as an AI/ML Research Intern, adapting self-supervised models
 for musical key estimation.
 
 **MSc Data Science & AI** (Distinction), Queen Mary University of London  
@@ -17,7 +13,7 @@ for musical key estimation.
 
 ---
 
-## 🍱 Issei — [live app](https://issei.app) · [repo](https://github.com/charman02/issei) · [API docs](https://api.issei.app/docs)
+## 🍱 Issei — [repo](https://github.com/charman02/issei) · [API docs](https://api.issei.app/docs)
 
 **Someone cooked you something you'd never had before, you asked for the recipe.
 Issei is how they send it to you.**
