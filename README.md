@@ -13,7 +13,7 @@ for musical key estimation.
 
 ---
 
-## 🍱 Issei — [repo](https://github.com/charman02/issei) · [API docs](https://api.issei.app/docs)
+## 🍱 Issei — [repo](https://github.com/charman02/issei)
 
 **Someone cooked you something you'd never had before, you asked for the recipe.
 Issei is how they send it to you.**
